@@ -1,0 +1,19 @@
+#!/bin/sh
+# Regenerate the docstring-derived API docs and stage them, so docs/api/ never
+# drifts from the code in a commit. Only runs when Python source under src/ is
+# staged (doc-only, test-only, or unrelated commits skip it).
+#
+# Install once per clone:
+#     git config core.hooksPath .githooks
+
+# Any staged .py under src/ ?
+if git diff --cached --name-only --diff-filter=ACMR | grep -q '^src/.*\.py$'; then
+    echo "pre-commit: regenerating docs/api/ from docstrings ..."
+    if ! uv run python scripts/gen_api_docs.py; then
+        echo "pre-commit: gen_api_docs.py failed — aborting commit." >&2
+        exit 1
+    fi
+    git add docs/api/
+fi
+
+exit 0

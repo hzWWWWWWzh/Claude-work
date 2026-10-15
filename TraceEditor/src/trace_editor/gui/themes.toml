@@ -1,0 +1,8 @@
+[light]
+fig_face    = "white"   # figure background
+axes_face   = "white"   # axes background
+axes_edge   = "black"   # spine / tick colour
+label       = "black"   # axis label and tick label colour
+scatter_bg  = "#C8C8D0" # unselected (grey) points
+scatter_sel = "C0"      # selected points (first colour cycle colour)
+fit_line    = "black"   # model fit curve

@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Trace Editor</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>4</number>
+    </property>
+    <property name="leftMargin">
+     <number>4</number>
+    </property>
+    <property name="topMargin">
+     <number>4</number>
+    </property>
+    <property name="rightMargin">
+     <number>4</number>
+    </property>
+    <property name="bottomMargin">
+     <number>4</number>
+    </property>
+    <!-- LEFT COLUMN -->
+    <item>
+     <widget class="QWidget" name="leftWidget">
+      <property name="minimumWidth">
+       <number>200</number>
+      </property>
+      <property name="maximumWidth">
+       <number>260</number>
+      </property>
+      <layout class="QVBoxLayout" name="leftLayout">
+       <property name="spacing">
+        <number>4</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="modelLabel">
+         <property name="text">
+          <string>Model</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="modelComboBox">
+         <item><property name="text"><string>none</string></property></item>
+         <item><property name="text"><string>ExponentialDrift</string></property></item>
+         <item><property name="text"><string>zMagnetForce</string></property></item>
+         <item><property name="text"><string>zWLC</string></property></item>
+         <item><property name="text"><string>zFiber</string></property></item>
+         <item><property name="text"><string>zHMf</string></property></item>
+         <item><property name="text"><string>zHMf2</string></property></item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="parametersLabel">
+         <property name="text">
+          <string>Parameters</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="paramsListWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string>QListWidget::item { padding: 2px; }</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="pipelineLabel">
+         <property name="text">
+          <string>Pipeline</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="pipelineLayout">
+         <item>
+          <widget class="QComboBox" name="pipelineComboBox"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="runPipelineButton">
+           <property name="text">
+            <string>Run</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <!-- CENTER COLUMN -->
+    <item>
+     <widget class="QWidget" name="centerWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>3</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="centerLayout">
+       <property name="spacing">
+        <number>4</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="fileSelectorLayout">
+         <item>
+          <widget class="QLabel" name="filenameLabel">
+           <property name="text"><string>Filename:</string></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="fileComboBox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="roiLabel">
+           <property name="text"><string>ROI:</string></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="roiComboBox"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectedButton">
+           <property name="text"><string>ROI selected</string></property>
+           <property name="checkable"><bool>true</bool></property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QWidget" name="plotWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="visible">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <!-- RIGHT COLUMN -->
+    <item>
+     <widget class="QWidget" name="rightWidget">
+      <property name="minimumWidth">
+       <number>180</number>
+      </property>
+      <property name="maximumWidth">
+       <number>240</number>
+      </property>
+      <layout class="QVBoxLayout" name="rightLayout">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="leftMargin"><number>4</number></property>
+       <property name="topMargin"><number>4</number></property>
+       <property name="rightMargin"><number>4</number></property>
+       <property name="bottomMargin"><number>4</number></property>
+
+       <!-- ROI section -->
+       <item>
+        <widget class="QPushButton" name="selectedOnlyCheckBox">
+         <property name="text"><string>Show Selected Only</string></property>
+         <property name="checkable"><bool>true</bool></property>
+        </widget>
+       </item>
+
+       <item><spacer name="sp1">
+        <property name="orientation"><enum>Qt::Orientation::Vertical</enum></property>
+        <property name="sizeType"><enum>QSizePolicy::Policy::Fixed</enum></property>
+        <property name="sizeHint" stdset="0"><size><width>0</width><height>6</height></size></property>
+       </spacer></item>
+       <item><widget class="QFrame" name="hline1">
+        <property name="frameShape"><enum>QFrame::Shape::HLine</enum></property>
+        <property name="frameShadow"><enum>QFrame::Shadow::Sunken</enum></property>
+       </widget></item>
+       <item><spacer name="sp2">
+        <property name="orientation"><enum>Qt::Orientation::Vertical</enum></property>
+        <property name="sizeType"><enum>QSizePolicy::Policy::Fixed</enum></property>
+        <property name="sizeHint" stdset="0"><size><width>0</width><height>6</height></size></property>
+       </spacer></item>
+
+       <!-- X axis section -->
+       <item>
+        <layout class="QHBoxLayout" name="xAxisHeaderLayout">
+         <item><widget class="QLabel" name="xAxisLabel"><property name="text"><string>X axis</string></property></widget></item>
+         <item><widget class="QComboBox" name="xChannelComboBox">
+          <property name="sizePolicy"><sizepolicy hsizetype="Expanding" vsizetype="Fixed"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy></property>
+         </widget></item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="xMinMaxLayout">
+         <item><widget class="QLabel" name="xMinLabel"><property name="text"><string>min</string></property></widget></item>
+         <item><widget class="QLineEdit" name="xMinEdit">
+          <property name="sizePolicy"><sizepolicy hsizetype="Expanding" vsizetype="Fixed"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy></property>
+          <property name="styleSheet"><string>QLineEdit { padding: 2px 3px; }</string></property>
+         </widget></item>
+         <item><widget class="QLabel" name="xMaxLabel"><property name="text"><string>max</string></property></widget></item>
+         <item><widget class="QLineEdit" name="xMaxEdit">
+          <property name="sizePolicy"><sizepolicy hsizetype="Expanding" vsizetype="Fixed"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy></property>
+          <property name="styleSheet"><string>QLineEdit { padding: 2px 3px; }</string></property>
+         </widget></item>
+         <item><widget class="QCheckBox" name="xLogCheckBox"><property name="text"><string>Log</string></property></widget></item>
+        </layout>
+       </item>
+
+       <item><spacer name="sp3">
+        <property name="orientation"><enum>Qt::Orientation::Vertical</enum></property>
+        <property name="sizeType"><enum>QSizePolicy::Policy::Fixed</enum></property>
+        <property name="sizeHint" stdset="0"><size><width>0</width><height>6</height></size></property>
+       </spacer></item>
+       <item><widget class="QFrame" name="hline2">
+        <property name="frameShape"><enum>QFrame::Shape::HLine</enum></property>
+        <property name="frameShadow"><enum>QFrame::Shadow::Sunken</enum></property>
+       </widget></item>
+       <item><spacer name="sp4">
+        <property name="orientation"><enum>Qt::Orientation::Vertical</enum></property>
+        <property name="sizeType"><enum>QSizePolicy::Policy::Fixed</enum></property>
+        <property name="sizeHint" stdset="0"><size><width>0</width><height>6</height></size></property>
+       </spacer></item>
+
+       <!-- Y axis section -->
+       <item>
+        <layout class="QHBoxLayout" name="yAxisHeaderLayout">
+         <item><widget class="QLabel" name="yAxisLabel"><property name="text"><string>Y axis</string></property></widget></item>
+         <item><widget class="QComboBox" name="yChannelComboBox">
+          <property name="sizePolicy"><sizepolicy hsizetype="Expanding" vsizetype="Fixed"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy></property>
+         </widget></item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="yMinMaxLayout">
+         <item><widget class="QLabel" name="yMinLabel"><property name="text"><string>min</string></property></widget></item>
+         <item><widget class="QLineEdit" name="yMinEdit">
+          <property name="sizePolicy"><sizepolicy hsizetype="Expanding" vsizetype="Fixed"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy></property>
+          <property name="styleSheet"><string>QLineEdit { padding: 2px 3px; }</string></property>
+         </widget></item>
+         <item><widget class="QLabel" name="yMaxLabel"><property name="text"><string>max</string></property></widget></item>
+         <item><widget class="QLineEdit" name="yMaxEdit">
+          <property name="sizePolicy"><sizepolicy hsizetype="Expanding" vsizetype="Fixed"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy></property>
+          <property name="styleSheet"><string>QLineEdit { padding: 2px 3px; }</string></property>
+         </widget></item>
+         <item><widget class="QCheckBox" name="yLogCheckBox"><property name="text"><string>Log</string></property></widget></item>
+        </layout>
+       </item>
+
+       <item><spacer name="sp5">
+        <property name="orientation"><enum>Qt::Orientation::Vertical</enum></property>
+        <property name="sizeType"><enum>QSizePolicy::Policy::Fixed</enum></property>
+        <property name="sizeHint" stdset="0"><size><width>0</width><height>6</height></size></property>
+       </spacer></item>
+       <item><widget class="QFrame" name="hline3">
+        <property name="frameShape"><enum>QFrame::Shape::HLine</enum></property>
+        <property name="frameShadow"><enum>QFrame::Shadow::Sunken</enum></property>
+       </widget></item>
+       <item><spacer name="sp6">
+        <property name="orientation"><enum>Qt::Orientation::Vertical</enum></property>
+        <property name="sizeType"><enum>QSizePolicy::Policy::Fixed</enum></property>
+        <property name="sizeHint" stdset="0"><size><width>0</width><height>6</height></size></property>
+       </spacer></item>
+
+       <!-- colorComboBox lives in the plot menu bar now, see menuColor -->
+       <item>
+        <widget class="QComboBox" name="colorComboBox">
+         <property name="visible"><bool>false</bool></property>
+         <item><property name="text"><string>theme</string></property></item>
+         <item><property name="text"><string>blue</string></property></item>
+         <item><property name="text"><string>orange</string></property></item>
+         <item><property name="text"><string>green</string></property></item>
+         <item><property name="text"><string>pink</string></property></item>
+         <item><property name="text"><string>lightblue</string></property></item>
+         <item><property name="text"><string>purple</string></property></item>
+         <item><property name="text"><string>fuchia</string></property></item>
+         <item><property name="text"><string>yellow</string></property></item>
+         <item><property name="text"><string>teal</string></property></item>
+         <item><property name="text"><string>red</string></property></item>
+        </widget>
+       </item>
+
+       <!-- File metadata section -->
+       <item><widget class="QLabel" name="fileMetaLabel"><property name="text"><string>Properties</string></property></widget></item>
+       <item>
+        <widget class="QLabel" name="fileMetaText">
+         <property name="text"><string/></property>
+         <property name="wordWrap"><bool>true</bool></property>
+         <property name="alignment"><set>Qt::AlignmentFlag::AlignTop|Qt::AlignmentFlag::AlignLeft</set></property>
+        </widget>
+       </item>
+
+       <item><spacer name="sp9">
+        <property name="orientation"><enum>Qt::Orientation::Vertical</enum></property>
+        <property name="sizeType"><enum>QSizePolicy::Policy::Fixed</enum></property>
+        <property name="sizeHint" stdset="0"><size><width>0</width><height>6</height></size></property>
+       </spacer></item>
+       <item><widget class="QFrame" name="hline5">
+        <property name="frameShape"><enum>QFrame::Shape::HLine</enum></property>
+        <property name="frameShadow"><enum>QFrame::Shadow::Sunken</enum></property>
+       </widget></item>
+       <item><spacer name="sp10">
+        <property name="orientation"><enum>Qt::Orientation::Vertical</enum></property>
+        <property name="sizeType"><enum>QSizePolicy::Policy::Fixed</enum></property>
+        <property name="sizeHint" stdset="0"><size><width>0</width><height>6</height></size></property>
+       </spacer></item>
+
+       <!-- Notes section -->
+       <item>
+        <layout class="QHBoxLayout" name="notesHeaderLayout">
+         <item><widget class="QLabel" name="notesLabel"><property name="text"><string>Notes</string></property></widget></item>
+         <item><spacer name="notesHeaderSpacer">
+          <property name="orientation"><enum>Qt::Orientation::Horizontal</enum></property>
+          <property name="sizeHint" stdset="0"><size><width>0</width><height>0</height></size></property>
+         </spacer></item>
+         <item><widget class="QPushButton" name="editNotesButton"><property name="text"><string>Edit…</string></property></widget></item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="notesScrollArea">
+         <property name="widgetResizable"><bool>true</bool></property>
+         <property name="frameShape"><enum>QFrame::Shape::NoFrame</enum></property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+         <widget class="QWidget" name="notesScrollAreaContents">
+          <layout class="QVBoxLayout" name="notesScrollAreaLayout">
+           <property name="leftMargin"><number>0</number></property>
+           <property name="topMargin"><number>0</number></property>
+           <property name="rightMargin"><number>0</number></property>
+           <property name="bottomMargin"><number>0</number></property>
+           <item>
+            <widget class="QLabel" name="notesText">
+             <property name="text"><string/></property>
+             <property name="wordWrap"><bool>true</bool></property>
+             <property name="alignment"><set>Qt::AlignmentFlag::AlignTop|Qt::AlignmentFlag::AlignLeft</set></property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionImportLegacy"/>
+    <addaction name="separator"/>
+    <addaction name="actionCloseCurrent"/>
+    <addaction name="actionCloseAll"/>
+    <addaction name="separator"/>
+    <addaction name="actionWatchFolder"/>
+    <addaction name="actionWatchingEnabled"/>
+    <addaction name="separator"/>
+    <addaction name="actionExport"/>
+    <addaction name="separator"/>
+    <addaction name="actionInspectH5"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuSelect">
+    <property name="title">
+     <string>Select</string>
+    </property>
+    <widget class="QMenu" name="menuPoints">
+     <property name="title">
+      <string>Points</string>
+     </property>
+     <addaction name="actionPointsInRange"/>
+     <addaction name="actionPointsInView"/>
+    </widget>
+    <widget class="QMenu" name="menuTraces">
+     <property name="title">
+      <string>Traces</string>
+     </property>
+     <addaction name="actionAll"/>
+     <addaction name="actionNone"/>
+     <addaction name="actionToggle"/>
+     <addaction name="actionCriteria"/>
+    </widget>
+    <addaction name="menuPoints"/>
+    <addaction name="menuTraces"/>
+   </widget>
+   <widget class="QMenu" name="menuParameters">
+    <property name="title">
+     <string>Parameters</string>
+    </property>
+    <widget class="QMenu" name="menuRemove">
+     <property name="title">
+      <string>Remove</string>
+     </property>
+     <addaction name="actionRemoveModelViewed"/>
+     <addaction name="actionRemoveModelAll"/>
+     <addaction name="separator"/>
+     <addaction name="actionRemoveAllProcessing"/>
+    </widget>
+    <addaction name="actionFit"/>
+    <addaction name="actionPlotHistogram"/>
+    <addaction name="separator"/>
+    <addaction name="actionAutoFitOnOpen"/>
+    <addaction name="separator"/>
+    <addaction name="menuRemove"/>
+   </widget>
+   <widget class="QMenu" name="menuProcess">
+    <property name="title">
+     <string>Process</string>
+    </property>
+    <addaction name="actionCalculateForce"/>
+    <addaction name="actionFreeDNA"/>
+    <addaction name="actionRuptures"/>
+   </widget>
+   <widget class="QMenu" name="menuPlot">
+    <property name="title">
+     <string>Plot</string>
+    </property>
+    <widget class="QMenu" name="menuType">
+     <property name="title">
+      <string>Type</string>
+     </property>
+     <addaction name="actionTypeZt"/>
+     <addaction name="actionTypeFZ"/>
+     <addaction name="actionTypeYX"/>
+    </widget>
+    <widget class="QMenu" name="menuScale">
+     <property name="title">
+      <string>Scale</string>
+     </property>
+     <addaction name="actionScaleAuto"/>
+     <addaction name="actionScaleFix"/>
+     <addaction name="actionScaleContour"/>
+    </widget>
+    <widget class="QMenu" name="menuColor">
+     <property name="title">
+      <string>Color</string>
+     </property>
+     <addaction name="actionColorTheme"/>
+     <addaction name="actionColorBlue"/>
+     <addaction name="actionColorOrange"/>
+     <addaction name="actionColorGreen"/>
+     <addaction name="actionColorPink"/>
+     <addaction name="actionColorLightblue"/>
+     <addaction name="actionColorPurple"/>
+     <addaction name="actionColorFuchia"/>
+     <addaction name="actionColorYellow"/>
+     <addaction name="actionColorTeal"/>
+     <addaction name="actionColorRed"/>
+    </widget>
+    <addaction name="menuType"/>
+    <addaction name="menuScale"/>
+    <addaction name="menuColor"/>
+    <addaction name="separator"/>
+    <addaction name="actionCopyImage"/>
+    <addaction name="actionSaveImage"/>
+    <addaction name="actionBulkSaveImages"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSelect"/>
+   <addaction name="menuParameters"/>
+   <addaction name="menuProcess"/>
+   <addaction name="menuPlot"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen">
+   <property name="text"><string>Open…</string></property>
+   <property name="shortcut"><string>Ctrl+O</string></property>
+  </action>
+  <action name="actionImportLegacy">
+   <property name="text"><string>Import Legacy .hdf…</string></property>
+  </action>
+  <action name="actionInspectH5">
+   <property name="text"><string>Inspect H5…</string></property>
+  </action>
+  <action name="actionCloseCurrent">
+   <property name="text"><string>Close Current</string></property>
+  </action>
+  <action name="actionCloseAll">
+   <property name="text"><string>Close All</string></property>
+  </action>
+  <action name="actionExport">
+   <property name="text"><string>Export…</string></property>
+   <property name="shortcut"><string>Ctrl+E</string></property>
+  </action>
+  <action name="actionExit">
+   <property name="text"><string>Exit</string></property>
+   <property name="shortcut"><string>Ctrl+W</string></property>
+  </action>
+  <action name="actionWatchFolder">
+   <property name="text"><string>Watch Folder…</string></property>
+  </action>
+  <action name="actionWatchingEnabled">
+   <property name="text"><string>Watching</string></property>
+   <property name="checkable"><bool>true</bool></property>
+  </action>
+  <action name="actionPointsInRange">
+   <property name="text"><string>By Criteria…</string></property>
+  </action>
+  <action name="actionPointsInView">
+   <property name="text"><string>In view</string></property>
+  </action>
+  <action name="actionAll">
+   <property name="text"><string>All</string></property>
+  </action>
+  <action name="actionNone">
+   <property name="text"><string>None</string></property>
+  </action>
+  <action name="actionToggle">
+   <property name="text"><string>Toggle</string></property>
+  </action>
+  <action name="actionCriteria">
+   <property name="text"><string>Criteria…</string></property>
+  </action>
+  <action name="actionFit">
+   <property name="text"><string>Fit…</string></property>
+  </action>
+  <action name="actionPlotHistogram">
+   <property name="text"><string>Plot Histogram</string></property>
+  </action>
+  <action name="actionAutoFitOnOpen">
+   <property name="text"><string>Auto-fit on File Open</string></property>
+   <property name="checkable"><bool>true</bool></property>
+  </action>
+  <action name="actionRemoveModelViewed">
+   <property name="text"><string>Model from Viewed Trace</string></property>
+  </action>
+  <action name="actionRemoveModelAll">
+   <property name="text"><string>Model from All Traces</string></property>
+  </action>
+  <action name="actionRemoveAllProcessing">
+   <property name="text"><string>All Processing (Params + Force)</string></property>
+  </action>
+  <action name="actionCalculateForce">
+   <property name="text"><string>Calculate Force</string></property>
+  </action>
+  <action name="actionFreeDNA">
+   <property name="text"><string>Free DNA</string></property>
+  </action>
+  <action name="actionRuptures">
+   <property name="text"><string>Ruptures</string></property>
+  </action>
+  <action name="actionTypeZt">
+   <property name="text"><string>Z(t)</string></property>
+  </action>
+  <action name="actionTypeFZ">
+   <property name="text"><string>F(Z)</string></property>
+  </action>
+  <action name="actionTypeYX">
+   <property name="text"><string>Y(X)</string></property>
+  </action>
+  <action name="actionScaleAuto">
+   <property name="text"><string>Auto</string></property>
+  </action>
+  <action name="actionScaleFix">
+   <property name="text"><string>Fix</string></property>
+  </action>
+  <action name="actionColorTheme">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>theme</string></property>
+  </action>
+  <action name="actionColorBlue">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>blue</string></property>
+  </action>
+  <action name="actionColorOrange">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>orange</string></property>
+  </action>
+  <action name="actionColorGreen">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>green</string></property>
+  </action>
+  <action name="actionColorPink">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>pink</string></property>
+  </action>
+  <action name="actionColorLightblue">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>lightblue</string></property>
+  </action>
+  <action name="actionColorPurple">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>purple</string></property>
+  </action>
+  <action name="actionColorFuchia">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>fuchia</string></property>
+  </action>
+  <action name="actionColorYellow">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>yellow</string></property>
+  </action>
+  <action name="actionColorTeal">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>teal</string></property>
+  </action>
+  <action name="actionColorRed">
+   <property name="checkable"><bool>true</bool></property>
+   <property name="text"><string>red</string></property>
+  </action>
+  <action name="actionScaleContour">
+   <property name="text"><string>Contour length</string></property>
+  </action>
+  <action name="actionCopyImage">
+   <property name="text"><string>Copy Image</string></property>
+   <property name="shortcut"><string>Ctrl+Shift+C</string></property>
+  </action>
+  <action name="actionSaveImage">
+   <property name="text"><string>Save Image…</string></property>
+   <property name="shortcut"><string>Ctrl+Shift+S</string></property>
+  </action>
+  <action name="actionBulkSaveImages">
+   <property name="text"><string>Bulk Save Images…</string></property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

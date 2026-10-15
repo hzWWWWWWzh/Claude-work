@@ -1,0 +1,108 @@
+# ── Project-specific ─────────────────────────────────────────────
+# notebooks are jupytext-paired; track the .py in nb_scripts/
+*.ipynb
+
+# CLAUDE.md is a local symlink to AGENTS.md
+CLAUDE.md
+
+# Per-user app settings (copy of gui/app_config.default.toml); see README
+src/trace_editor/gui/app_config.toml
+
+# ── Python bytecode / C extensions ───────────────────────────────
+*$py.class
+*.py[cod]
+*.so
+__pycache__/
+
+# ── Distribution / packaging ─────────────────────────────────────
+*.egg
+*.egg-info/
+.eggs/
+.installed.cfg
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+MANIFEST
+parts/
+sdist/
+share/python-wheels/
+var/
+wheels/
+
+# ── PyInstaller ──────────────────────────────────────────────────
+*.manifest
+*.spec
+
+# ── Installer logs ───────────────────────────────────────────────
+pip-delete-this-directory.txt
+pip-log.txt
+
+# ── Tests / coverage ─────────────────────────────────────────────
+*.cover
+*.py,cover
+.cache
+.coverage
+.coverage.*
+.hypothesis/
+.nox/
+.pytest_cache/
+.tox/
+cover/
+coverage.xml
+htmlcov/
+nosetests.xml
+
+# ── Environments ─────────────────────────────────────────────────
+.env
+.venv
+ENV/
+env/
+env.bak/
+venv/
+venv.bak/
+
+# ── Documentation build output ───────────────────────────────────
+# (docs/api/ is committed source, not build output — deliberately not ignored)
+/site
+docs/_build/
+
+# ── Type checkers ────────────────────────────────────────────────
+.dmypy.json
+.mypy_cache/
+.pyre/
+.pytype/
+dmypy.json
+
+# ── Jupyter / IPython ────────────────────────────────────────────
+.ipynb_checkpoints
+ipython_config.py
+profile_default/
+
+# ── Editors / IDEs / agent tools ─────────────────────────────────
+.claude/
+.codex/
+.copilotignore
+.cursor/
+.cursorignore
+.cursorindexingignore
+.cursorrules
+.gemini/
+.idea/
+.ropeproject
+.spyderproject
+.spyproject
+.vscode
+.windsurf/
+.windsurfrules
+.zed/
+
+# ── Misc build tools ─────────────────────────────────────────────
+*.mo
+*.pot
+__pypackages__/
+cython_debug/

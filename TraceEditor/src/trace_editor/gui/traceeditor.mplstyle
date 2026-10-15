@@ -1,0 +1,31 @@
+## traceeditor.mplstyle
+
+figure.facecolor:       white
+
+axes.facecolor:         white
+axes.labelsize:         11
+axes.labelweight:       bold
+axes.linewidth:         1.2
+axes.edgecolor:         black
+
+
+xtick.direction:        out
+ytick.direction:        out
+xtick.major.size:       5
+ytick.major.size:       5
+xtick.major.width:      1.0
+ytick.major.width:      1.0
+xtick.labelsize:        9
+ytick.labelsize:        9
+
+lines.linewidth:        2.0
+lines.markersize:       5
+
+font.size:              10
+font.family:            sans-serif
+font.sans-serif:        Arial, DejaVu Sans, Liberation Sans
+
+text.usetex:            False
+
+## Custom colour cycle (ordered blue → orange → green → red → purple → teal → pink → ...)
+axes.prop_cycle: cycler('color', ['4069E0', 'FD8C00', '4BAB6E', 'F14124', 'D16EFF', '35CBC4', 'FF58B3', 'EA2353', '5DCBF3', 'FFE066'])

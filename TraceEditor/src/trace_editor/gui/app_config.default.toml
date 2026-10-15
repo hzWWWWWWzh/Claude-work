@@ -1,0 +1,76 @@
+# Default per-user app settings, checked into the repo.
+#
+# To customize (e.g. your tweezer's force-calibration constants), copy this
+# file to "app_config.toml" in the same directory and edit the copy — that
+# file is gitignored and will be used instead of these defaults. See the
+# README for details.
+
+# Force-calibration constants, used as the ultimate fallback for
+# "calculate_force" pipeline steps that don't set a given key themselves
+# (see below) — so you don't have to repeat these in every pipeline.
+[force_defaults]
+"L1 (mm)" = 1.4
+"L2 (mm)" = 0.8
+"Fmin (pN)" = 0.02
+"Fmax (pN)" = 85.0
+"alpha (-)" = 0.7
+"offset (pts)" = 0.0
+
+# Fit pipelines: named, ordered sequences of fit steps (see
+# core/auto_fit_pipeline.py and docs/architecture.md for the full scheme).
+# A pipeline is a top-level array-of-tables; each element is one step, run
+# in file order:
+#
+#   model    - required: a ForceSpectroscopy function name (e.g. "zWLC"),
+#              or the literal "calculate_force".
+#   params   - optional. For a fit-model step, each key is the parameter's
+#              display label (as shown in the Fit dialog) mapped to an
+#              inline table with any subset of {vary, value, min, max}; a
+#              parameter not listed falls back to the model's own
+#              docstring-derived default. For a "calculate_force" step,
+#              params are bare calibration numbers (see [force_defaults]
+#              above for the fallback if a key is omitted here).
+#   criteria - optional list of point-selection criteria (same shape as
+#              Select > Points > By Criteria), AND-ed together, applied
+#              automatically when fitting in "Default" selection mode.
+#
+# Pipelines are fully explicit and independent -- a step only ever uses its
+# own params/criteria, with no fallback to another pipeline. If a step
+# doesn't set a param, that parameter is "Local" (this ROI's own stored
+# value); if it doesn't list criteria, fitting in "Default" mode uses every
+# point. Repeat whatever settings you want shared across pipelines.
+#
+# "default_pipeline" is not otherwise special -- it's just the pipeline
+# selected by default the first time the app runs.
+
+[[default_pipeline]]
+model = "ExponentialDrift"
+
+  [[default_pipeline.criteria]]
+  channel = "Shift (mm)"
+  min = "p90"  # high Shift = stepper retracted = low force
+
+[[default_pipeline]]
+model = "zWLC"
+params."L (bp)" = { value = 48502 }
+
+# Example: fit ExponentialDrift (Z0/dZ_dt free, over the low-force points),
+# calculate Force, then fit zWLC (L fixed, Zbead free).
+[[zwlc_pipeline]]
+model = "ExponentialDrift"
+params."Z0 (um)" = { vary = true }
+params."dZ_dt (nm_s)" = { vary = true }
+  [[zwlc_pipeline.criteria]]
+  channel = "Shift (mm)"
+  min = "p90"  # high Shift = stepper retracted = low force
+
+[[zwlc_pipeline]]
+model = "calculate_force"
+
+[[zwlc_pipeline]]
+model = "zWLC"
+params."Zbead (um)" = { vary = true }
+params."L (bp)" = { value = 48502 }
+  [[zwlc_pipeline.criteria]]
+  channel = "Shift (mm)"
+  max = "p10"  # high Shift = stepper retracted = low force
