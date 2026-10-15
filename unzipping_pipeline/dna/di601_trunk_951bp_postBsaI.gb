@@ -1,0 +1,40 @@
+LOCUS       di601_trunk_951             951 bp    DNA     linear    SYN 10-SEP-2026
+DEFINITION  di-601 Y-trunk after BsaI, 951 bp. J6 AGCG / J5 GGTG. Two Widom 601 NPS with ~300 bp pUC18 flanks.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+FEATURES             Location/Qualifiers
+     misc_feature    1..4
+                     /label="J6 overhang AGCG - Hairpin-YT ligates here"
+     misc_feature    5..303
+                     /label="left flank, 299 bp pUC18 sequence"
+     misc_signal     304..450
+                     /label="Widom 601 NPS copy 1"
+     misc_feature    451..500
+                     /label="native 50 bp linker"
+     misc_signal     501..647
+                     /label="Widom 601 NPS copy 2"
+     misc_feature    648..947
+                     /label="right flank, 300 bp pUC18 sequence"
+     misc_feature    948..951
+                     /label="J5 overhang GGTG - 3WJ oligo HW27 ligates here"
+ORIGIN
+        1 agcgttgtac tgagagtgca ccatatgcgg tgtgaaatac cgcacagatg cgtaaggaga
+       61 aaataccgca tcaggcgcca ttcgccattc aggctgcgca actgttggga agggcgatcg
+      121 gtgcgggcct cttcgctatt acgccagctg gcgaaagggg gatgtgctgc aaggcgatta
+      181 agttgggtaa cgccagggtt ttcccagtca cgacgttgta aaacgacggc cagtgccaag
+      241 cttgcatgcc tgcaggtcga ctctagagat atccctccac caggggggcc ccccgggctg
+      301 tgactggaga atcccggtgc cgaggccgct caattggtcg tagcaagctc tagcaccgct
+      361 taaacgcacg tacgcgctgt cccccgcgtt ttaaccgcca aggggattac tccctagtct
+      421 ccaggcacgt gtcagatata tacatcctgt tggaccctat acgcggtatt gaatcgacac
+      481 cttgccaccc cgggctgtga ctggagaatc ccggtgccga ggccgctcaa ttggtcgtag
+      541 caagctctag caccgcttaa acgcacgtac gcgctgtccc ccgcgtttta accgccaagg
+      601 ggattactcc ctagtctcca ggcacgtgtc agatatatac atcctgttgg accctatacg
+      661 cggtattgaa tcgacacctt gccaccccgt gggccacaaa agtgggatat cgaattcgta
+      721 atcatggtca tagctgtttc ctgtgtgaaa ttgttatccg ctcacaattc cacacaacat
+      781 acgagccgga agcataaagt gtaaagcctg gggtgcctaa tgagtgagct aactcacatt
+      841 aattgcgttg cgctcactgc ccgctttcca gtcgggaaac ctgtcgtgcc agctgcatta
+      901 atgaatcggc caacgcgcgg ggagaggcgg tttgcgtatt gggcgctcac c
+//

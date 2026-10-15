@@ -1,0 +1,99 @@
+# WHZ group default style for publication data panels.
+# Raw traces still require explicit linestyle="none"; use scripts/whz_plot.py.
+
+# Typography: one sans-serif family for text and math. Arial is the group
+# standard; Helvetica is the metrically compatible fallback; DejaVu Sans is
+# the last resort. Keep mathtext on the same family so units such as µm and
+# variables such as k_BT match the surrounding axis text.
+font.family: sans-serif
+font.sans-serif: Arial, Helvetica, DejaVu Sans
+font.size: 9
+font.weight: normal
+mathtext.fontset: custom
+mathtext.rm: Arial
+mathtext.it: Arial:italic
+mathtext.bf: Arial:bold
+mathtext.sf: Arial
+mathtext.tt: Arial
+mathtext.cal: Arial
+text.usetex: False
+
+figure.dpi: 150
+figure.facecolor: white
+figure.edgecolor: white
+figure.autolayout: False
+
+axes.facecolor: white
+axes.edgecolor: black
+axes.linewidth: 0.9
+axes.grid: False
+axes.axisbelow: False
+axes.spines.left: True
+axes.spines.right: True
+axes.spines.bottom: True
+axes.spines.top: True
+axes.labelsize: 9
+axes.labelpad: 3
+axes.titlesize: 9
+axes.titleweight: normal
+axes.titlepad: 4
+axes.unicode_minus: True
+axes.xmargin: 0.02
+axes.ymargin: 0.04
+# Canonical palette (see scripts/whz_plot.py PALETTE). NPG Nature base
+# (ggsci pal_npg): red #E64B35, dark blue #3C5488, teal green #00A087,
+# salmon #F39B7F, then neutral grey-blue #8491B4. The purple accent
+# #AA3377 is retained for nucleosome/boxplot roles because NPG has no
+# purple. Light grey #BFBFBF is reserved for references/controls; dark
+# grey #666666 for neutral raw points such as boxplot observations.
+# Note: mplstyle treats '#' as a comment, so hex values appear without '#'
+# here; they resolve to the same colors as scripts/whz_plot.py PALETTE.
+axes.prop_cycle: cycler('color', ['E64B35', '3C5488', '00A087', 'F39B7F', 'AA3377', '8491B4'])
+
+xtick.direction: in
+ytick.direction: in
+xtick.top: True
+ytick.right: True
+xtick.major.size: 4
+ytick.major.size: 4
+xtick.major.width: 0.8
+ytick.major.width: 0.8
+xtick.minor.visible: True
+ytick.minor.visible: True
+xtick.minor.size: 2
+ytick.minor.size: 2
+xtick.minor.width: 0.6
+ytick.minor.width: 0.6
+xtick.labelsize: 9
+ytick.labelsize: 9
+xtick.major.pad: 2.5
+ytick.major.pad: 2.5
+
+lines.linewidth: 1.2
+lines.markersize: 3
+lines.markeredgewidth: 0.5
+patch.linewidth: 0.8
+errorbar.capsize: 2
+
+legend.frameon: False
+legend.fontsize: 8
+legend.handlelength: 1.5
+legend.handletextpad: 0.45
+legend.borderaxespad: 0.35
+legend.labelspacing: 0.3
+legend.columnspacing: 0.8
+
+image.cmap: gray
+image.interpolation: nearest
+
+savefig.dpi: 600
+savefig.facecolor: white
+savefig.edgecolor: white
+savefig.transparent: False
+savefig.bbox: tight
+savefig.pad_inches: 0.08
+savefig.format: pdf
+
+pdf.fonttype: 42
+ps.fonttype: 42
+svg.fonttype: none

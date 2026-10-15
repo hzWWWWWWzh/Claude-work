@@ -1,0 +1,35 @@
+============================================================================
+di-601 Y-TRUNK from S_CP67_pUC18-Amp-2x197, ~300 bp flank each side
+============================================================================
+designed 2026-09-10 · one PCR + one BsaI digest · no BbsI, no assembly step
+
+template   S_CP67_pUC18-Amp-2x197.dna, 3109 bp circular; 601_147 at 2712-2858 and 2909-3055
+primers    o_HW86 anneals bp 2413-2442 (unique) ; o_HW87 anneals bp 225-246 (unique)
+amplicon   971 bp, spans the plasmid origin
+post-BsaI  951 bp trunk core
+
+layout of the 951 bp core
+   J6 1-4 (AGCG) | flank 5-303 | 601 #1 304-450 | linker 451-500 | 601 #2 501-647 | flank 648-947 | J5 948-951
+   4 + 299 + 147 + 50 + 147 + 300 + 4 = 951 bp
+
+junction compatibility with the existing Y-shape
+   left  end 5' overhang AGCG  <- Hairpin-YT starts CGCT   OK
+   right end top 4-mer   CACC  <- 3WJ oligo HW27 starts CACC   OK
+   J5 = GGTG and J6 = CGCT, the same pair the current mono-601 trunk 0309YT uses
+   the two 601 copies run the same way along the fork as 0309YT (601 unwraps direction-dependently)
+
+screens
+   internal BsaI  0/0   BsmBI 0/0   BbsI 0/0   Chi 0
+   primer binding sites in the circular plasmid: FWD 1, REV 1
+   3'-anchored complementarity FWD<->REV 0 nt ; self FWD 3, REV 0
+   Tm(anneal) FWD 63.8 C, REV 65.1 C, dTm 1.3 C ; GC FWD 50%, REV 64%, core 56%
+
+unzipping coordinates -- the fork enters at J5 and travels toward the hairpin
+   from the J5 terminus:   601 #2 dyad = 377 bp    601 #1 dyad = 574 bp
+   from the fork start (+30 bp T-arm): 407 and 604
+   total unzippable length 951 bp (mono-601 0309YT is 832 bp)
+
+why both primers must anneal OUTSIDE the 601
+   S_CP67 carries a 2x197 repeat, so any primer whose annealing region lies inside the
+   601 binds BOTH copies and gives two products 197 bp apart. That is what o_HW64 and
+   o_HW67 of the 2x601-GAL4 design do. Both primers here sit in the unique pUC18 flanks.

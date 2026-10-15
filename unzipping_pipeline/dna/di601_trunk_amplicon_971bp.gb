@@ -1,0 +1,39 @@
+LOCUS       di601_amplicon              971 bp    DNA     linear    SYN 10-SEP-2026
+DEFINITION  PCR product of o_HW86 + o_HW87 on S_CP67_pUC18-Amp-2x197
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+FEATURES             Location/Qualifiers
+     misc_feature    1..13
+                     /label="o_HW86 tail: TTT + BsaI + T"
+     misc_feature    4..9
+                     /label="BsaI site"
+     misc_feature    14..17
+                     /label="J6 overhang AGCG"
+     misc_feature    955..958
+                     /label="J5 overhang (top 4-mer CACC)"
+     misc_feature    963..968
+                     /label="BsaI site (rev)"
+     misc_feature    959..971
+                     /label="o_HW87 tail"
+ORIGIN
+        1 tttggtctct agcgttgtac tgagagtgca ccatatgcgg tgtgaaatac cgcacagatg
+       61 cgtaaggaga aaataccgca tcaggcgcca ttcgccattc aggctgcgca actgttggga
+      121 agggcgatcg gtgcgggcct cttcgctatt acgccagctg gcgaaagggg gatgtgctgc
+      181 aaggcgatta agttgggtaa cgccagggtt ttcccagtca cgacgttgta aaacgacggc
+      241 cagtgccaag cttgcatgcc tgcaggtcga ctctagagat atccctccac caggggggcc
+      301 ccccgggctg tgactggaga atcccggtgc cgaggccgct caattggtcg tagcaagctc
+      361 tagcaccgct taaacgcacg tacgcgctgt cccccgcgtt ttaaccgcca aggggattac
+      421 tccctagtct ccaggcacgt gtcagatata tacatcctgt tggaccctat acgcggtatt
+      481 gaatcgacac cttgccaccc cgggctgtga ctggagaatc ccggtgccga ggccgctcaa
+      541 ttggtcgtag caagctctag caccgcttaa acgcacgtac gcgctgtccc ccgcgtttta
+      601 accgccaagg ggattactcc ctagtctcca ggcacgtgtc agatatatac atcctgttgg
+      661 accctatacg cggtattgaa tcgacacctt gccaccccgt gggccacaaa agtgggatat
+      721 cgaattcgta atcatggtca tagctgtttc ctgtgtgaaa ttgttatccg ctcacaattc
+      781 cacacaacat acgagccgga agcataaagt gtaaagcctg gggtgcctaa tgagtgagct
+      841 aactcacatt aattgcgttg cgctcactgc ccgctttcca gtcgggaaac ctgtcgtgcc
+      901 agctgcatta atgaatcggc caacgcgcgg ggagaggcgg tttgcgtatt gggcgctcac
+      961 ctgagaccaa a
+//
